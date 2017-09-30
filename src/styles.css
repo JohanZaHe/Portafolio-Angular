@@ -18,5 +18,10 @@
   .fadeIn {
     animation-name: fadeIn;
   }
+/*Loader*/
+  svg path,
+  svg rect{
+    fill: black;
+  }
   
   

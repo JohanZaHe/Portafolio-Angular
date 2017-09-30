@@ -4,9 +4,10 @@ import { Http } from '@angular/http';
 @Injectable()
 export class ProductosService {
 
-  producto:any[]=[];
+  products:any[]=[];
   cargando:boolean=true;
-  constructor(private http:Http) { 
+
+  constructor(public http:Http) { 
 
       this.cargar_productos();
 
@@ -14,13 +15,14 @@ export class ProductosService {
 
   public cargar_productos(){
     this.cargando=true;
-    if(this.producto.length===0){
-      this.http.get('https://portafolio-b551f.firebaseio.com/productos.json')
-      .subscribe(data=>{
-        console.log(data.json());
-        this.producto=data.json();
-        this.cargando=false;
-      })
+   if(this.products.length==0){
+      this.http.get('https://portafolio-b551f.firebaseio.com/productos_idx.json')
+      .subscribe(res => {
+        setTimeout(()=>{
+          this.products=res.json();
+          this.cargando=false;
+        },1500)
+      });
     }
 
   }

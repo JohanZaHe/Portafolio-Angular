@@ -23,7 +23,7 @@ export class ItemPortafolioComponent {
       .subscribe( res =>{
         this.producto=res.json();
         this.cod=parametros['id'];
-        console.log(this.producto);
+        //console.log(this.producto);
       })
     })
 
